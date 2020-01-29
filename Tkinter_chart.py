@@ -1,13 +1,11 @@
-import matplotlib
-matplotlib.use('TkAgg')
-
-
 from matplotlib import style
 from tkinter import ttk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2Tk
 from matplotlib.figure import Figure
-
 import tkinter as tk
+import matplotlib
+matplotlib.use('TkAgg')
+
 
 class MainWindow(tk.Tk):
 
@@ -64,11 +62,18 @@ class Chart(tk.Frame):
         chart_window = Figure(figsize=(10,5), dpi=100)
         chart_window.suptitle('simple chart example')
         chart = chart_window.add_subplot(111)
+                '''
+        just random data, to show how chart in tkinter looks
+        '''
+            
         years = [2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019]
         cost = [3100, 3100, 3300, 3600, 3650, 3600, 3600,
                          3600, 3600, 4000]
         cost_with_tax = [4100, 4100, 4300, 4600, 4650, 4700, 4700,
                           4700, 5000, 5000]
+        
+        '''
+        '''
         chart.plot(years, cost)
         chart.plot(years, cost_with_tax)
         chart.legend(['description 1','description 2'])
